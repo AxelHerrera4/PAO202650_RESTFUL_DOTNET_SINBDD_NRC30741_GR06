@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.12:8080/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.12:8080/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_CelsiusAFahrenheit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusAFahrenheit" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CelsiusAFahrenheit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusAFahrenheitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitACelsius_InputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitACelsius" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitACelsius_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitACelsiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CelsiusAKelvin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusAKelvin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CelsiusAKelvin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusAKelvinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinACelsius_InputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinACelsius" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinACelsius_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinACelsiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitAKelvin_InputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitAKelvin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitAKelvin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitAKelvinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinAFahrenheit_InputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinAFahrenheit" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinAFahrenheit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinAFahrenheitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KmAMetros_InputMessage">
+    <wsdl:part name="parameters" element="tns:KmAMetros" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KmAMetros_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KmAMetrosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetrosACm_InputMessage">
+    <wsdl:part name="parameters" element="tns:MetrosACm" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MetrosACm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MetrosACmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PulgadasACm_InputMessage">
+    <wsdl:part name="parameters" element="tns:PulgadasACm" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PulgadasACm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PulgadasACmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PiesAMetros_InputMessage">
+    <wsdl:part name="parameters" element="tns:PiesAMetros" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PiesAMetros_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PiesAMetrosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MillasAKm_InputMessage">
+    <wsdl:part name="parameters" element="tns:MillasAKm" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MillasAKm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MillasAKmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KgAGramos_InputMessage">
+    <wsdl:part name="parameters" element="tns:KgAGramos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KgAGramos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KgAGramosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GramosAMg_InputMessage">
+    <wsdl:part name="parameters" element="tns:GramosAMg" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GramosAMg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GramosAMgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LibrasAKg_InputMessage">
+    <wsdl:part name="parameters" element="tns:LibrasAKg" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LibrasAKg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LibrasAKgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnzasAGramos_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnzasAGramos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_OnzasAGramos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnzasAGramosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ToneladasAKg_InputMessage">
+    <wsdl:part name="parameters" element="tns:ToneladasAKg" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ToneladasAKg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ToneladasAKgResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="CelsiusAFahrenheit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CelsiusAFahrenheit" message="tns:IService1_CelsiusAFahrenheit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CelsiusAFahrenheitResponse" message="tns:IService1_CelsiusAFahrenheit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitACelsius">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FahrenheitACelsius" message="tns:IService1_FahrenheitACelsius_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FahrenheitACelsiusResponse" message="tns:IService1_FahrenheitACelsius_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusAKelvin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CelsiusAKelvin" message="tns:IService1_CelsiusAKelvin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CelsiusAKelvinResponse" message="tns:IService1_CelsiusAKelvin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KelvinACelsius">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KelvinACelsius" message="tns:IService1_KelvinACelsius_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KelvinACelsiusResponse" message="tns:IService1_KelvinACelsius_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitAKelvin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FahrenheitAKelvin" message="tns:IService1_FahrenheitAKelvin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FahrenheitAKelvinResponse" message="tns:IService1_FahrenheitAKelvin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KelvinAFahrenheit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KelvinAFahrenheit" message="tns:IService1_KelvinAFahrenheit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KelvinAFahrenheitResponse" message="tns:IService1_KelvinAFahrenheit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KmAMetros">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KmAMetros" message="tns:IService1_KmAMetros_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KmAMetrosResponse" message="tns:IService1_KmAMetros_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MetrosACm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MetrosACm" message="tns:IService1_MetrosACm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MetrosACmResponse" message="tns:IService1_MetrosACm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PulgadasACm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PulgadasACm" message="tns:IService1_PulgadasACm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PulgadasACmResponse" message="tns:IService1_PulgadasACm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PiesAMetros">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PiesAMetros" message="tns:IService1_PiesAMetros_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PiesAMetrosResponse" message="tns:IService1_PiesAMetros_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MillasAKm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MillasAKm" message="tns:IService1_MillasAKm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MillasAKmResponse" message="tns:IService1_MillasAKm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KgAGramos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KgAGramos" message="tns:IService1_KgAGramos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KgAGramosResponse" message="tns:IService1_KgAGramos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GramosAMg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GramosAMg" message="tns:IService1_GramosAMg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GramosAMgResponse" message="tns:IService1_GramosAMg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LibrasAKg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LibrasAKg" message="tns:IService1_LibrasAKg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LibrasAKgResponse" message="tns:IService1_LibrasAKg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnzasAGramos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/OnzasAGramos" message="tns:IService1_OnzasAGramos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/OnzasAGramosResponse" message="tns:IService1_OnzasAGramos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ToneladasAKg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ToneladasAKg" message="tns:IService1_ToneladasAKg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ToneladasAKgResponse" message="tns:IService1_ToneladasAKg_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CelsiusAFahrenheit">
+      <soap:operation soapAction="http://tempuri.org/IService1/CelsiusAFahrenheit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitACelsius">
+      <soap:operation soapAction="http://tempuri.org/IService1/FahrenheitACelsius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusAKelvin">
+      <soap:operation soapAction="http://tempuri.org/IService1/CelsiusAKelvin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KelvinACelsius">
+      <soap:operation soapAction="http://tempuri.org/IService1/KelvinACelsius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitAKelvin">
+      <soap:operation soapAction="http://tempuri.org/IService1/FahrenheitAKelvin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KelvinAFahrenheit">
+      <soap:operation soapAction="http://tempuri.org/IService1/KelvinAFahrenheit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KmAMetros">
+      <soap:operation soapAction="http://tempuri.org/IService1/KmAMetros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetrosACm">
+      <soap:operation soapAction="http://tempuri.org/IService1/MetrosACm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PulgadasACm">
+      <soap:operation soapAction="http://tempuri.org/IService1/PulgadasACm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PiesAMetros">
+      <soap:operation soapAction="http://tempuri.org/IService1/PiesAMetros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MillasAKm">
+      <soap:operation soapAction="http://tempuri.org/IService1/MillasAKm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KgAGramos">
+      <soap:operation soapAction="http://tempuri.org/IService1/KgAGramos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GramosAMg">
+      <soap:operation soapAction="http://tempuri.org/IService1/GramosAMg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LibrasAKg">
+      <soap:operation soapAction="http://tempuri.org/IService1/LibrasAKg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnzasAGramos">
+      <soap:operation soapAction="http://tempuri.org/IService1/OnzasAGramos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToneladasAKg">
+      <soap:operation soapAction="http://tempuri.org/IService1/ToneladasAKg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://192.168.1.12:8080/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

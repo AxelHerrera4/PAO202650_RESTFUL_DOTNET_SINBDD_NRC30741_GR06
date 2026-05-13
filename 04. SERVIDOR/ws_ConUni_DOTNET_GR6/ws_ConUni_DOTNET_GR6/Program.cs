@@ -1,29 +1,29 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿    using ec.edu.monster.servicio;
 
-// 1. Agregar servicios al contenedor
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddOpenApi();
+    var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+    builder.Services.AddControllers();
 
-// 2. Configurar el pipeline de solicitudes HTTP
-// SACAMOS SWAGGER DEL IF PARA QUE FUNCIONE EN EL IIS
-app.UseSwagger();
-app.UseSwaggerUI(options =>
-{
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-    options.RoutePrefix = "swagger"; // Esto hace que entres con /swagger
-});
+    // Registrar servicio consolidado
+    builder.Services.AddScoped<IConversionService, ConversionService>();
 
-// Esto lo dejamos opcional para desarrollo
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
 
-app.UseAuthorization();
-app.MapControllers();
+    builder.Services.AddOpenApi();
 
-app.Run();
+    var app = builder.Build();
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+    }
+
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();

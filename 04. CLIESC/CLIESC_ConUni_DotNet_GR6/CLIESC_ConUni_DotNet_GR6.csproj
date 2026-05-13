@@ -53,6 +53,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ec\edu\monster\controlador\ConversorControlador.cs" />
+    <Compile Include="ec\edu\monster\modelo\ConversorModelo.cs" />
+    <Compile Include="ec\edu\monster\vista\FormConversor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ec\edu\monster\vista\FormConversor.Designer.cs">
+      <DependentUpon>FormConversor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ec\edu\monster\vista\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ec\edu\monster\vista\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

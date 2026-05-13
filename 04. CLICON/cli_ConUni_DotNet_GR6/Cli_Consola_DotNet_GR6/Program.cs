@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using ec.edu.monster.modelo;
 using ec.edu.monster.vista;

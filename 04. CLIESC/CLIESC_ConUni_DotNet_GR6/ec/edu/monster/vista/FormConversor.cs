@@ -1,7 +1,5 @@
 using System;
 using System.Drawing;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ec.edu.monster.controlador;
 using ec.edu.monster.modelo;
@@ -10,20 +8,19 @@ namespace ec.edu.monster.vista
 {
     public partial class FormConversor : Form
     {
-        private readonly ConversionController _controller;
+        private ConversorControlador controlador;
 
         public FormConversor()
         {
             InitializeComponent();
-            _controller = new ConversionController();
+            controlador = new ConversorControlador();
             ConfigurarFormulario();
         }
 
         private void ConfigurarFormulario()
         {
-            // Inicializar opciones de Categoría
             cmbCategoria.Items.AddRange(new string[] { "LONGITUD", "TEMPERATURA", "MASA" });
-            cmbCategoria.SelectedIndex = 1; // Seleccionar TEMPERATURA por defecto
+            cmbCategoria.SelectedIndex = 1;
         }
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,12 +28,44 @@ namespace ec.edu.monster.vista
             cmbOperacion.Items.Clear();
             string categoria = cmbCategoria.SelectedItem.ToString();
 
-            // Actualizar el título dinámico
             lblTituloPrincipal.Text = $"CONVERSOR MONSTER | {categoria}";
 
-            var operaciones = ConversionModel.ObetenerOperaciones(categoria);
-            cmbOperacion.Items.AddRange(operaciones.ToArray());
-            lblIngresaValor.Text = ConversionModel.ObtenerPlaceholder(categoria);
+            if (categoria == "LONGITUD")
+            {
+                cmbOperacion.Items.AddRange(new string[]
+                {
+                    "Kilometros a Metros",
+                    "Metros a Centimetros",
+                    "Pulgadas a Centimetros",
+                    "Pies a Metros",
+                    "Millas a Kilometros"
+                });
+                lblIngresaValor.Text = "Ingresa unidades de longitud";
+            }
+            else if (categoria == "TEMPERATURA")
+            {
+                cmbOperacion.Items.AddRange(new string[]
+                {
+                    "Celsius a Fahrenheit",
+                    "Fahrenheit a Celsius",
+                    "Celsius a Kelvin",
+                    "Kelvin a Celsius",
+                    "Fahrenheit a Kelvin",
+                    "Kelvin a Fahrenheit"
+                });
+                lblIngresaValor.Text = "Ingresa grados Celsius";
+            }
+            else if (categoria == "MASA")
+            {
+                cmbOperacion.Items.AddRange(new string[]
+                {
+                    "Kilogramos a Gramos",
+                    "Gramos a Kilogramos",
+                    "Libras a Kilogramos",
+                    "Onzas a Gramos"
+                });
+                lblIngresaValor.Text = "Ingresa unidades de masa";
+            }
 
             if (cmbOperacion.Items.Count > 0)
             {
@@ -68,22 +97,28 @@ namespace ec.edu.monster.vista
 
             try
             {
-                string operacion = cmbOperacion.SelectedItem.ToString();
-                string endpoint = ConversionModel.GetEndpoint(operacion, txtValor.Text);
-
-                if (string.IsNullOrEmpty(endpoint))
+                var operacion = new ConversorOperacion
                 {
-                    MessageBox.Show("Operación no válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    lblResultado.Text = "Error.";
-                    return;
-                }
+                    Categoria = cmbCategoria.SelectedItem.ToString(),
+                    Operacion = cmbOperacion.SelectedItem.ToString(),
+                    Valor = valor
+                };
 
-                double resultado = await _controller.ConvertirAsync(endpoint);
-                lblResultado.Text = resultado.ToString("G");
+                operacion = await controlador.ConvertirAsync(operacion);
+
+                if (operacion.Mensaje == "Éxito")
+                {
+                    lblResultado.Text = operacion.Resultado.ToString("G");
+                }
+                else
+                {
+                    MessageBox.Show(operacion.Mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblResultado.Text = "Error.";
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al contactar el servicio: {ex.Message}", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblResultado.Text = "Error.";
             }
             finally

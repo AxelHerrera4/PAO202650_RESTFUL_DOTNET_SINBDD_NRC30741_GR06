@@ -32,7 +32,7 @@ while (true)
 
 // 2. Instanciar el cliente HTTP
 using var client = new HttpClient();
-client.BaseAddress = new Uri("http://localhost:8090/");
+client.BaseAddress = new Uri("http://10.40.26.222:8090/");
 
 try
 {
